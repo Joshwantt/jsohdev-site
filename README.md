@@ -1,2 +1,2 @@
-# jsohdev-site
-jsohdev website for personal projects
+# captis-tester-ui
+static next.js frontend for controlling captis-tester-api ESP32 fleet
