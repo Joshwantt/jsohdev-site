@@ -8,18 +8,21 @@
   "dependencies": {
     "daisyui": "^2.51.6",
     "date-fns": "^2.29.3",
-    "framer-motion": "^10.12.18",
+    "framer-motion": "^11.0.3",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
-    "next": "latest",
+    "next": "^14.1.0",
     "path": "^0.12.7",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "remark": "^14.0.2",
     "remark-html": "^15.0.2"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.9"
+    "@tailwindcss/typography": "^0.5.9",
+    "@types/node": "20.11.6",
+    "@types/react": "^18.2.48",
+    "typescript": "5.3.3"
   }
 }
