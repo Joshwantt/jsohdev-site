@@ -12,7 +12,7 @@ module.exports = {
     require("daisyui"),
     require('@tailwindcss/typography')],
   daisyui: {
-    themes: ["corporate"],
+    themes: ["light"],
   },
   images: {
     unoptimized: true,

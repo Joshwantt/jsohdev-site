@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.html {
-  --scroll-behavior: smooth!important;
+html {
   scroll-behavior: smooth!important;
 }
 
 .container {
     max-width: 96rem; 
+    height: 100%;
     margin: 0 auto;   
     padding: 1.25rem;  
     box-sizing: border-box; 

@@ -4,23 +4,23 @@ const Projects = [
         nameCard: 'jsohdev Personal Site',
         overview: 'Implement a next.js site deployable to AWS for personal projects',
         href: '/projects/jsohdev',
-        image: '',
-        tags: ['Next.js','IaC','Full Stack']
+        image: '/next.png',
+        tags: ['Next.js','IaC']
     },
     {
         nameNav: '// virtualised router',
         nameCard: 'Virtualised Router',
         overview: 'Administrate virutal LAN infrastructure using proxmox, OpenWRT and PiHole',
         href: '/projects/router',
-        image: '',
-        tags: ['Proxmox','Networking','Virtualisation']
+        image: '/proxmox.png',
+        tags: ['Networking','Virtualisation', 'Docker']
     },
     {
         nameNav: '// workplace tools',
         nameCard: 'Workplace Tools',
-        overview: 'Development of internal tools to support workplace operations',
+        overview: 'Development of internal projects to support workplace operations',
         href: '/projects/work_tools',
-        image: '',
+        image: '/arduino.png',
         tags: ['C','Next.js']
     },
     {
@@ -28,7 +28,7 @@ const Projects = [
         nameCard: 'Cloud Development',
         overview: 'Development of cloud based software products to extend and integrate third party platforms',
         href: '/projects/work_cloud',
-        image: '',
+        image: '/aws.png',
         tags: ['JS','AWS','CI/CD']
     },
     {
@@ -36,7 +36,7 @@ const Projects = [
         nameCard: 'NRSSS Interactive Story Board',
         overview: 'Implementation of an interactive sensory story board for Nursery Road State Special School',
         href: '/projects/nrsss',
-        image: '',
+        image: '/nrsss.png',
         tags: ['Python','Agile']
     },
 ]
@@ -45,32 +45,49 @@ const About = [
     {
         nameNav: '// cv',
         nameCard: 'CV',
-        description: 'Overview of professional experience, education, and skills',
         overview: 'development of internal tools to support workplace operations',
         href: '/about/cv',
-        image: '',
+        image: '/cv.png',
         tags: ['Work','Education','Skills']
     },
     {
         nameNav: '// hobbies',
         nameCard: 'Hobbies',
-        description: 'A small page about me and my personal hobbies',
         overview: 'A breif overview of hobbies and personal enjoyments',
         href: '/about/hobbies',
-        image: '',
+        image: '/hobbies.png',
         tags: ['Gaming','Gym','Tinkering']
+    },
+    {
+        nameNav: '// todo',
+        nameCard: 'Goals',
+        overview: 'Future plans for the site and projects to implement',
+        href: '/about/todo',
+        image: '/checklist.png',
+        tags: ['Projects','Skills','Tinkering']
     },
 ]
 
-export const Nav = [
-    {
+export const Nav = {
+    hero: {
+        headerNav: '', //blank for hero
+        headerCard: '',
+        link: '',
+        id: 'hero',
+        items: []
+    },
+    projects: {
         headerNav: '[ projects ]',
-        headerCard: 'Projects',
+        headerCard: '[ projects ]',
+        link: '/#projects',
+        id: 'projects',
         items: Projects
     },
-    {
-        headerNav: '[ skills ]',
-        headerCard: 'About',
+    about: {
+        headerNav: '[ about ]',
+        headerCard: '[ about ]',
+        link: '/#about',
+        id: 'about',
         items: About
-    }
-]
+    },
+}

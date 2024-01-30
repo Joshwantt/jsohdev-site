@@ -1,5 +1,5 @@
 export default function Footer() {
   return (
-    <div></div>
+    <div key='footer'></div>
   );
 }
