@@ -1,6 +1,6 @@
 const Projects = [
     {
-        nameNav: '// jsohdev personal site',
+        nameNav: '// personal site',
         nameCard: 'jsohdev Personal Site',
         overview: 'Implement a next.js site deployable to AWS for personal projects',
         href: '/projects/jsohdev',
@@ -8,7 +8,7 @@ const Projects = [
         tags: ['Next.js','IaC']
     },
     {
-        nameNav: '// virtualised router',
+        nameNav: '// virtualisation',
         nameCard: 'Virtualised Router',
         overview: 'Administrate virutal LAN infrastructure using proxmox, OpenWRT and PiHole',
         href: '/projects/router',
@@ -24,7 +24,7 @@ const Projects = [
         tags: ['C','Next.js']
     },
     {
-        nameNav: '// cloud development',
+        nameNav: '// cloud dev',
         nameCard: 'Cloud Development',
         overview: 'Development of cloud based software products to extend and integrate third party platforms',
         href: '/projects/work_cloud',
@@ -32,7 +32,7 @@ const Projects = [
         tags: ['JS','AWS','CI/CD']
     },
     {
-        nameNav: '// nrsss interactive story board',
+        nameNav: '// story board',
         nameCard: 'NRSSS Interactive Story Board',
         overview: 'Implementation of an interactive sensory story board for Nursery Road State Special School',
         href: '/projects/nrsss',

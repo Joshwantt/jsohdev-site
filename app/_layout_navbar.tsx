@@ -1,11 +1,5 @@
-'use client'
-
 import Link from 'next/link';
 import { Nav } from './_util_navigation';
-
-function dropdownClicked(index) {
-
-}
 
 export default function Navbar() {
   return (
@@ -17,31 +11,26 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="navbar-end px-12">
-        <div className='menu menu-horizontal'>
           {Object.keys(Nav).map((navKey, navIndex) => {
             const header = Nav[navKey];
             if (header.items.length > 0) {
             return (
-              <li key={navIndex}>
-                <details>
-                  <summary className='text-xl hover'>
-                    {header.headerNav}
-                  </summary>
-                  <ul className="p-2 bg-primary">
+              <div className="dropdown dropdown-hover">
+                <div tabIndex={0} role="button" className="btn m-1 bg-primary btn-ghost normal-case text-xl">{header.headerNav}</div>
+                <ul tabIndex={0} className="dropdown-content z-[1] menu shadow bg-primary rounded-box w-52">
                     {header.items.map((item, itemIndex) => (
                       <li key={itemIndex} className='text-xl'>
                         <Link href={item.href}>{item.nameNav}</Link>
                       </li>
                     ))}
                   </ul>
-                </details>
-              </li>
+              </div>
             )
             }
           })}
         </div>
     </div>
     </div>
-    </div>
+
   );
 }
