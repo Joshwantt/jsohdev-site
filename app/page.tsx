@@ -1,7 +1,7 @@
-import { Nav } from "./_util_navigation"
-import ContentSection from "./_comp_contentSection"
-import Hero from "./_comp_hero"
-import CardSection from "./_comp_cardSection"
+import { Nav } from "./_util/cards"
+import ContentSection from "./_components/contentSection"
+import Hero from "./_components/hero"
+import CardSection from "./_components/cardSection"
 
 const heroProps = {
     title: 'Jsoh Dev',
