@@ -48,7 +48,7 @@ export default function Card({ nameCard, overview, modalContent, image, tags }: 
                     <p>{overview}</p>
                     <div className="card-actions justify-end">
                         {tags.map((tag, index) => (
-                            <div key={index} className="badge badge-outline">{tag}</div>
+                            <div key={index} className="badge badge-outline text-info">{tag}</div>
                         ))}
                     </div>
                 </div>
