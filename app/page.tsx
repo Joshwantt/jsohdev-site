@@ -27,7 +27,7 @@ const sectionContents = [
 
 export default function Home() {
     return (
-      <>
+      <div id="home">
         {Object.keys(Nav).map((navKey, index) => {
           const header = Nav[navKey];
           return (
@@ -36,6 +36,6 @@ export default function Home() {
             </ContentSection>
           );
         })}
-      </>
+        </div>
     );
   }
