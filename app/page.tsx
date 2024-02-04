@@ -27,7 +27,7 @@ const sectionContents = [
 
 export default function Home() {
     return (
-      <div id="home">
+      <div id="home" className="text-base-content">
         {Object.keys(Nav).map((navKey, index) => {
           const header = Nav[navKey];
           return (
