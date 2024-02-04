@@ -12,7 +12,7 @@ const domain = 'jsohdev.com'
 export default {
   config(_input) {
     return {
-      name: "JsohDev",
+      name: "jsoh-dev",
       region: "ap-southeast-2",
     };
   },
@@ -23,14 +23,14 @@ export default {
       });
 
       // Create a certificate with alternate domain names
-      const certificate = new DnsValidatedCertificate(stack, "GraphCert", {
+      const certificate = new DnsValidatedCertificate(stack, "JsohDevCert", {
         domainName: subdomain+hostedZone.zoneName,
         hostedZone,
         // The certificates need to be created in us-east-1
         region: "us-east-1",
       });
 
-      const site = new NextjsSite(stack, "GraphSite", {
+      const site = new NextjsSite(stack, "JsohDevSite", {
         customDomain: {
           domainName: subdomain+hostedZone.zoneName,
           cdk: {
