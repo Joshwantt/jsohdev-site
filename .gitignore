@@ -29,3 +29,9 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 deployment/cdk.context.json
+
+# sst
+.sst
+
+# open-next
+.open-next
