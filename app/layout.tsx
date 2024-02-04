@@ -3,13 +3,28 @@ import './globals.css'
 import Navbar from './_layout/navbar'
 import Footer from "./_layout/footer"
 import type { Metadata } from 'next'
-import Head from "next/head"
 
 
 
 export const metadata: Metadata = {
   title: 'Jsoh Dev',
   description: 'Jsoh Dev / Portfolio and personal projects',
+  icons: {
+    icon: '/icon.svg'
+  },
+  robots: {
+    index: false,
+    follow: true,
+    nocache: true,
+    googleBot: {
+      index: true,
+      follow: false,
+      noimageindex: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
 }
 
 
@@ -20,14 +35,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Head>
-          <link
-            rel="icon"
-            href="/icon?<generated>"
-            type="image/<generated>"
-            sizes="<generated>"
-          />
-      </Head>
       <body>
         <Navbar />
         <main>
