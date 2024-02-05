@@ -16,7 +16,6 @@ export function DeviceAPIStack({ stack }: StackContext) {
     const certificate = new DnsValidatedCertificate(stack, "JsohDevCert", {
         domainName: subdomain + hostedZone.zoneName,
         hostedZone,
-        // The certificates need to be created in us-east-1
         region: "ap-southeast-2",
     });
 
@@ -34,6 +33,7 @@ export function DeviceAPIStack({ stack }: StackContext) {
     const api = new Api(stack, "DeviceAPI", {
         routes: {
             "GET /device/{id}": "app/api/device/{id}/get.handler",
+            "POST /device/{id}": "app/api/device/{id}/post.handler",
         },
         customDomain: {
             domainName: subdomain + hostedZone.zoneName,

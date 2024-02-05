@@ -4,26 +4,27 @@ import { DynamoDB } from "aws-sdk";
 
 export const handler: APIGatewayProxyHandlerV2 = async (event) => {
   const id = event.pathParameters.id.trim();
+  const message = JSON.parse(event.body).message;
   const user = event.headers.uuid.trim()
-  const db = new DynamoDB.DocumentClient();
 
   const params = {
     device_id: id,
+    messages: message,
     user: user
   }
 
-  // Update or create the item
-  const getParams = {
+  const db = new DynamoDB.DocumentClient();
+
+  const putParams = {
     TableName: Table.DeviceTable.tableName,
-    Key: params
-  }
+    Item: params,
+  };
 
   try {
-    const result = await db.get(getParams).promise();
-
+    await db.put(putParams).promise();
     return {
       statusCode: 200,
-      body: JSON.stringify(result),
+      body: JSON.stringify({ response: "Item updated/created successfully", update: params }),
     };
   } catch (error) {
     return {
