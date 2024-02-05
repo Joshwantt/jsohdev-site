@@ -5,7 +5,7 @@ import GithubProvider from "next-auth/providers/github"
 import { DynamoDBAdapter } from "@auth/dynamodb-adapter"
 import { Table } from "sst/node/table";
 
-const client = DynamoDBDocument.from(new DynamoDB(), {
+const client = DynamoDBDocument.from(new DynamoDB(), { //maybeneed to be a new documentclient
   marshallOptions: {
     convertEmptyValues: true,
     removeUndefinedValues: true,
