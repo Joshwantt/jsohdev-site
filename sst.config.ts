@@ -1,5 +1,6 @@
 import { SSTConfig } from "sst";
 import { NextStack } from "./stacks/next_site";
+import { DeviceAPIStack } from "./stacks/device_api";
 
 
 export default {
@@ -10,6 +11,7 @@ export default {
     };
   },
   stacks(app) {
-    app.stack(NextStack)
+    app.stack(NextStack).stack(DeviceAPIStack)
+    
   },
 } satisfies SSTConfig;
