@@ -1,2 +1,3 @@
-# captis-tester-ui
-static next.js frontend for controlling captis-tester-api ESP32 fleet
+# jsoh-dev
+- NextJS 14 Site for portfolio and IoT Screen
+- Database and API for IoT Screen
