@@ -1,9 +1,8 @@
 import Link from 'next/link';
-import { getServerSession } from "next-auth/next"
-import { authOptions } from '../_util/auth/auth';
+import { auth } from '../_util/auth/auth';
 
 export default async function Navbar() {
-  const session = await getServerSession(authOptions);
+  const session = await auth();
 
   return (
     <div className="bg-primary text-primary-content">

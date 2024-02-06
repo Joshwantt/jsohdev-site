@@ -1,4 +1,4 @@
-import { NextAuthOptions } from "next-auth";
+import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import { DynamoDBAdapter } from "@auth/dynamodb-adapter"
 import { DynamoDB } from "@aws-sdk/client-dynamodb"
@@ -13,7 +13,10 @@ const client = DynamoDBDocument.from(new DynamoDB(), { //maybeneed to be a new d
     },
 })
 
-export const authOptions: NextAuthOptions = {
+export const {
+    handlers: { GET, POST },
+    auth,
+  } = NextAuth({
     callbacks: {
         async session({ session, token, user }) {
           session.user.id = user.id
@@ -34,5 +37,5 @@ export const authOptions: NextAuthOptions = {
         indexName: "GSI1",
         indexPartitionKey: "GSI1PK",
         indexSortKey: "GSI1SK"
-    }),
-}
+  })
+})
