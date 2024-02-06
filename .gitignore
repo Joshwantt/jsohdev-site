@@ -35,3 +35,4 @@ deployment/cdk.context.json
 
 # open-next
 .open-next
+.env
