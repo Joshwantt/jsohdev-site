@@ -1,5 +1,5 @@
 import NextAuth from "next-auth"
-import GithubProvider from "next-auth/providers/github"
+import GitHub from "next-auth/providers/github"
 import { DynamoDBAdapter } from "@auth/dynamodb-adapter"
 import { DynamoDB } from "@aws-sdk/client-dynamodb"
 import { DynamoDBDocument } from "@aws-sdk/lib-dynamodb"
@@ -25,10 +25,7 @@ export const {
         }
       },
     providers: [
-        GithubProvider({
-            clientId: process.env.GITHUB_ID,
-            clientSecret: process.env.GITHUB_SECRET,
-        }),
+        GitHub
     ],
     adapter: DynamoDBAdapter(client, {
         tableName: Table.UserTable.tableName,
