@@ -47,7 +47,7 @@ export function DeviceAPIStack({ stack }: StackContext) {
     api.bind([DeviceTable])
 
     stack.addOutputs({
-        SiteUrl: api.url,
+        API_Url: api.url,
     });
 
 }
