@@ -17,6 +17,10 @@ export const {
     handlers: { GET, POST },
     auth,
   } = NextAuth({
+    theme: {
+      colorScheme: "light", // "auto" | "dark" | "light"
+      logo: "/icon.svg", // Absolute URL to image
+    },
     callbacks: {
         async session({ session, token, user }) {
           session.user.id = user.id
