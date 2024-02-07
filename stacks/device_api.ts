@@ -25,7 +25,7 @@ export function DeviceAPIStack({ stack }: StackContext) {
             messages: "string",
             user: "string"
         },
-        primaryIndex: { partitionKey: "device_id", sortKey: "user" }
+        primaryIndex: { partitionKey: "user", sortKey: "device_id" }
     })
 
 
