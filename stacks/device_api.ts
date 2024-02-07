@@ -34,6 +34,7 @@ export function DeviceAPIStack({ stack }: StackContext) {
         routes: {
             "GET /device/{id}": "app/api/device/{id}/get.handler",
             "POST /device/{id}": "app/api/device/{id}/post.handler",
+            "GET /device/all": "app/api/device/all/get.handler",
         },
         customDomain: {
             domainName: subdomain + hostedZone.zoneName,
