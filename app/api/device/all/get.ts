@@ -3,25 +3,26 @@ import { Table } from "sst/node/table";
 import { DynamoDB } from "aws-sdk";
 
 export const handler: APIGatewayProxyHandlerV2 = async (event) => {
-  const user = event.headers.uuid.trim()
+  const user = event.headers.uuid.trim();
   const db = new DynamoDB.DocumentClient();
 
   const params = {
-    user: user
-  }
-
-  // Update or create the item
-  const getParams = {
     TableName: Table.DeviceTable.tableName,
-    Key: params
-  }
+    KeyConditionExpression: "#usr = :user", // using ExpressionAttributeNames
+    ExpressionAttributeNames: {
+      "#usr": "user" // define a placeholder for the reserved keyword
+    },
+    ExpressionAttributeValues: {
+      ":user": user
+    }
+  };
 
   try {
-    const result = await db.get(getParams).promise();
+    const result = await db.query(params).promise();
 
     return {
       statusCode: 200,
-      body: JSON.stringify(result),
+      body: JSON.stringify(result.Items),
     };
   } catch (error) {
     return {
