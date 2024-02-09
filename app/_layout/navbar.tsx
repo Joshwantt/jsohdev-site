@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { auth } from '../_util/auth/auth';
+import LoginNav from './_components/loginNav';
 
 const loginNav = [
   {
@@ -48,20 +49,7 @@ export default async function Navbar() {
                 <button className="btn">Sign In</button>
               </Link>
             ) : (
-              <div>
-                {loginNav.map((header, headerIndex) => (
-                  <div className="dropdown dropdown-hover dropdown-end" key={headerIndex}>
-                    <div tabIndex={0} role="button" className="btn m-1 bg-primary btn-ghost">{header.title}</div>
-                    <ul tabIndex={0} className="dropdown-content z-[1] menu shadow bg-primary rounded-box w-52">
-                      {header.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className=''>
-                          <Link href={item.link}>{item.title}</Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
+              <LoginNav />
             )
           }
         </div>
