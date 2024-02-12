@@ -23,7 +23,8 @@ export const {
     },
     callbacks: {
         async session({ session, token, user }) {
-          session.user.id = user.email
+          session.user.id = user.id,
+          session.user.email = user.email
           
           return session
         }
