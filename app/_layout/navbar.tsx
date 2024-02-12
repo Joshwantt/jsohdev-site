@@ -37,12 +37,12 @@ export default async function Navbar() {
   return (
     <div className="bg-primary text-primary-content">
       <div className='navbar containerNav'>
-        <div className="navbar-start px-12">
+        <div className="navbar-start">
           <Link className="btn btn-ghost normal-case text-xl" href="/">
             [ home ]
           </Link>
         </div>
-        <div className="navbar-end px-12">
+        <div className="navbar-end">
           {
             !session ? (
               <Link href='/api/auth/signin'>
