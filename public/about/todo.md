@@ -12,10 +12,10 @@ Just some plans I have for this site, other projects, or personally over the com
 ### JsohDev extension to support IoT Screen
 
 To support the IoT screen project, I intend to develop a web component to allow for the following:
-- Account creation
-- Ability for users to 'register' a screen to their account
-- Ability for users to add/schedule messages through a calendar-like UI
-- API/Backend to facilitate WebUI and device functions
+- Account creation (MVP Done)
+- Ability for users to 'register' a screen to their account (WIP)
+- Ability for users to add/schedule messages through a calendar-like UI (WIP)
+- API/Backend to facilitate WebUI and device functions (MVP/WIP)
 
 ## Personal Goals
 

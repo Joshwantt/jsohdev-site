@@ -2,11 +2,11 @@
 
 > ### IT Support Engineer
 > #### *03/2021 - Present*
+> - Developed and deploy cloud-based services using AWS serverless framework, SST and AWS CDK.
+> - Developed in-house tools to assist with operational needs.
 > - Provided remote support to a diverse and fragmented customer base for environmental monitoring based IoT products.
 > - Led operational team in their day-to-day duties in accordance with KPIs and business requirements.
-> - Developed and implemented cloud-based services using AWS.
-> - Developed in-house tools to assist with operational needs.
-> - Liaised with external stakeholders such as vendors and clients to ensure product quality and project success.
+> - Liaised with external stakeholders such as vendors and clients to ensure project success.
 
 > ### Supervisor - Swissport
 > #### *07/2017 - 12/2022*
