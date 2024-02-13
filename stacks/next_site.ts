@@ -1,8 +1,27 @@
-import { StackContext, NextjsSite, Table } from "sst/constructs";
+import { StackContext, NextjsSite, Table, use } from "sst/constructs";
 import { HostedZone } from "aws-cdk-lib/aws-route53";
 import { DnsValidatedCertificate } from "aws-cdk-lib/aws-certificatemanager"; //this isn't ideal
 
-export function NextStack({ stack }: StackContext) {
+
+export function NextAuthTable({ app, stack }: StackContext) {
+    const UserTable = new Table(stack, "UserTable", {
+        timeToLiveAttribute: "expires",
+        fields: {
+            pk: "string",
+            sk: "string",
+            GSI1PK: "string",
+            GSI1SK: "string",
+        },
+        primaryIndex: { partitionKey: "pk", sortKey: "sk" },
+        globalIndexes: {
+            GSI1: { partitionKey: "GSI1PK", sortKey: "GSI1SK" },
+        }
+    })
+
+    return UserTable
+}
+
+export function NextSite({ stack }: StackContext) {
 
     const subdomain = 'www.'
     const domain = 'jsohdev.com'
@@ -20,21 +39,7 @@ export function NextStack({ stack }: StackContext) {
         region: "us-east-1",
     });
 
-    const UserTable = new Table(stack, "UserTable", {
-        timeToLiveAttribute: "expires",
-        fields: {
-            pk: "string",
-            sk: "string",
-            GSI1PK: "string",
-            GSI1SK: "string",
-        },
-        primaryIndex: { partitionKey: "pk", sortKey: "sk" },
-        globalIndexes: {
-            GSI1: { partitionKey: "GSI1PK", sortKey: "GSI1SK" },
-        }
-    })
-
-
+    const UserTable = use(NextAuthTable)
 
     const site = new NextjsSite(stack, "JsohDevSite", {
         bind: [UserTable],
@@ -52,3 +57,5 @@ export function NextStack({ stack }: StackContext) {
     });
 
 }
+
+

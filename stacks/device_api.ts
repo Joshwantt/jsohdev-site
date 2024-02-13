@@ -1,10 +1,25 @@
-import { StackContext, Api, Table } from "sst/constructs";
+import { StackContext, Api, Table, use } from "sst/constructs";
 import { HostedZone } from "aws-cdk-lib/aws-route53";
 import { DnsValidatedCertificate } from "aws-cdk-lib/aws-certificatemanager"; //this isn't ideal
 
-export function DeviceAPIStack({ stack }: StackContext) {
+export function DeviceAPITable({ app, stack }: StackContext) {
+    const DeviceTable = new Table(stack, "DeviceTable", {
+        fields: {
+            device_id: "string",
+            messages: "string",
+            user: "string"
+        },
+        primaryIndex: { partitionKey: "user", sortKey: "device_id" }
+    })
 
-    const subdomain = 'api.'
+    return DeviceTable
+}
+
+export function DeviceAPI({ app, stack }: StackContext) {
+
+
+    const subdomain = (app.stage === 'prod') ? 'api.' : app.stage+'.';
+
     const domain = 'jsohdev.com'
 
 
@@ -19,22 +34,12 @@ export function DeviceAPIStack({ stack }: StackContext) {
         region: "ap-southeast-2",
     });
 
-    const DeviceTable = new Table(stack, "DeviceTable", {
-        fields: {
-            device_id: "string",
-            messages: "string",
-            user: "string"
-        },
-        primaryIndex: { partitionKey: "user", sortKey: "device_id" }
-    })
-
-
 
     const api = new Api(stack, "DeviceAPI", {
         routes: {
-            "GET /device/{id}": "app/api/device/{id}/get.handler",
-            "POST /device/{id}": "app/api/device/{id}/post.handler",
-            "GET /device/all": "app/api/device/all/get.handler",
+            "GET /device/{id}": "api/device/{id}/get.handler",
+            "POST /device/{id}": "api/device/{id}/post.handler",
+            "GET /device/all": "api/device/all/get.handler",
         },
         customDomain: {
             domainName: subdomain + hostedZone.zoneName,
@@ -44,6 +49,8 @@ export function DeviceAPIStack({ stack }: StackContext) {
             },
         },
     });
+
+    const DeviceTable = use(DeviceAPITable)
 
     api.bind([DeviceTable])
 
