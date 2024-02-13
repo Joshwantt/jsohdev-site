@@ -43,7 +43,7 @@ export default async function Navbar() {
           </Link>
         </div>
         <div className="navbar-end">
-          {
+          {/* {
             !session?.user ? (
               <Link href='/api/auth/signin'>
                 <button className="btn">Sign In</button>
@@ -51,7 +51,7 @@ export default async function Navbar() {
             ) : (
               <LoginNav />
             )
-          }
+          } */}
         </div>
       </div>
     </div>
