@@ -1,6 +1,7 @@
-# jsoh-dev
 
-I have been eager to develop a simple site to showcase personal projects and enhance my familiarity with current web development frameworks. Here I'll outline some base goals, requirements, implementations, and instructions for running locally.
+# jsoh-dev  [(link)](www.jsohdev.com)
+
+I have been eager to develop a simple site to showcase personal projects and enhance my familiarity with current web development frameworks. Here I'll outline some base goals, requirements, implementations, and instructions for running locally/deployment.
 
 ## Local Development
 To run a local development server, please ensure you have at least Node.js version 20 installed and added to your PATH.
@@ -68,4 +69,3 @@ Considering the goals and requirements, the following technologies have been cho
 - **Auth**: Authentication has been set up via Next-auth using the beta V5 release.
 - **Infrastructure**: Using AWS and open-source projects such as SST/OpenNext, the project will be deployed to AWS through serverless and high-availability products. Infrastructure as Code (using SST/AWS CDK) will define and manage self-contained infrastructure stacks within AWS. Certificates, DynamoDB Tables, DNS, and domains will also be provisioned through the IaC deploy process.
 - **TypeScript**: The project will be implemented using TypeScript to ensure type safety of the code.
-
