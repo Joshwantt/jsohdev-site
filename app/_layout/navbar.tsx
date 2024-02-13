@@ -32,7 +32,7 @@ const loginNav = [
 ]
 
 export default async function Navbar() {
-  const session = await auth();
+  const session = await auth()
 
   return (
     <div className="bg-primary text-primary-content">
@@ -44,7 +44,7 @@ export default async function Navbar() {
         </div>
         <div className="navbar-end">
           {
-            !session ? (
+            !session?.user ? (
               <Link href='/api/auth/signin'>
                 <button className="btn">Sign In</button>
               </Link>
@@ -55,5 +55,6 @@ export default async function Navbar() {
         </div>
       </div>
     </div>
-  );
+  )
+  ;
 }
