@@ -1,5 +1,5 @@
 
-# jsoh-dev  [(link)](www.jsohdev.com)
+# jsoh-dev  [(link)](https://www.jsohdev.com)
 
 I have been eager to develop a simple site to showcase personal projects and enhance my familiarity with current web development frameworks. Here I'll outline some base goals, requirements, implementations, and instructions for running locally/deployment.
 
