@@ -45,6 +45,7 @@ If the command fails, you may need to comment out all stacks from `sst.config.ts
 
 1. Next-auth beta9 introduced a critical error that makes auth routes non-functional in production. I've removed auth from the site until this is resolved. Unfortunately, previous beta versions of next-auth v5 also have various issues.
 2. Not noticeable because the auth-gated sections of the site are inaccessible. However, the navbar has some weird interaction edge cases for dropdown menus and server/client components. It needs further improvement.
+3. There currently isn't any unit testing. I would like to fix this once some more of the IoT features are closer to MVP. Still likely to be significant changes here as the implementation evolves.
 
 ## Goals
 - **Portfolio**: The site is initially intended to function as a simple portfolio showcasing work experience, projects, and a CV.
