@@ -1,9 +1,9 @@
-import { StackContext, NextjsSite, Table, use } from "sst/constructs";
+import { StackContext, NextjsSite, Table, use, Config } from "sst/constructs";
 import { HostedZone } from "aws-cdk-lib/aws-route53";
 import { DnsValidatedCertificate } from "aws-cdk-lib/aws-certificatemanager"; //this isn't ideal
 
 
-export function NextAuthTable({ app, stack }: StackContext) {
+export function NextAuthTable({ stack }: StackContext) {
     const UserTable = new Table(stack, "UserTable", {
         timeToLiveAttribute: "expires",
         fields: {
@@ -21,9 +21,16 @@ export function NextAuthTable({ app, stack }: StackContext) {
     return UserTable
 }
 
-export function NextSite({app, stack }: StackContext) {
+export function NextSite({ app, stack }: StackContext) {
 
-    const subdomain = (app.stage === 'prod') ? 'www.' : app.stage.toLowerCase()+'.';
+    const SiteSubdomain = new Config.Parameter(stack, "SiteSubdomain", {
+        value: (app.stage === 'prod') ? 'www.' : app.stage.toLowerCase() + '.'
+    });
+
+    const APISubdomain = new Config.Parameter(stack, "APISubdomain", {
+        value: (app.stage === 'prod') ? 'api.' : app.stage.toLowerCase() + '.'
+    });
+
     const domain = 'jsohdev.com'
 
 
@@ -33,7 +40,7 @@ export function NextSite({app, stack }: StackContext) {
 
     // Create a certificate with alternate domain names
     const certificate = new DnsValidatedCertificate(stack, "JsohDevCert", {
-        domainName: subdomain + hostedZone.zoneName,
+        domainName: SiteSubdomain.value + hostedZone.zoneName,
         hostedZone,
         // The certificates need to be created in us-east-1
         region: "us-east-1",
@@ -42,9 +49,9 @@ export function NextSite({app, stack }: StackContext) {
     const UserTable = use(NextAuthTable)
 
     const site = new NextjsSite(stack, "JsohDevSite", {
-        bind: [UserTable],
+        bind: [UserTable, APISubdomain],
         customDomain: {
-            domainName: subdomain + hostedZone.zoneName,
+            domainName: SiteSubdomain.value + hostedZone.zoneName,
             cdk: {
                 hostedZone,
                 certificate,
