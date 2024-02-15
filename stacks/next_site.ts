@@ -21,9 +21,9 @@ export function NextAuthTable({ app, stack }: StackContext) {
     return UserTable
 }
 
-export function NextSite({ stack }: StackContext) {
+export function NextSite({app, stack }: StackContext) {
 
-    const subdomain = 'www.'
+    const subdomain = (app.stage === 'prod') ? 'www.' : app.stage.toLowerCase()+'.';
     const domain = 'jsohdev.com'
 
 

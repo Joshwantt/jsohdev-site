@@ -18,7 +18,7 @@ export function DeviceAPITable({ app, stack }: StackContext) {
 export function DeviceAPI({ app, stack }: StackContext) {
 
 
-    const subdomain = (app.stage === 'prod') ? 'api.' : app.stage+'.';
+    const subdomain = (app.stage === 'prod') ? 'api.' : app.stage.toLowerCase()+'.';
 
     const domain = 'jsohdev.com'
 
