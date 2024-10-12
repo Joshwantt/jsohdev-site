@@ -17,15 +17,18 @@ export const {
     handlers: { GET, POST },
     auth,
   } = NextAuth({
+    session: {
+      strategy: "database",
+      maxAge: 300
+    },
     theme: {
       colorScheme: "light", // "auto" | "dark" | "light"
       logo: "/icon.svg", // Absolute URL to image
     },
     callbacks: {
         async session({ session, token, user }) {
-          session.user.id = user.id,
           session.user.email = user.email
-          
+      
           return session
         }
       },

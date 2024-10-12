@@ -34,6 +34,8 @@ const loginNav = [
 export default async function Navbar() {
   const session = await auth()
 
+  console.log(session)
+
   return (
     <div className="bg-primary text-primary-content">
       <div className='navbar containerNav'>
